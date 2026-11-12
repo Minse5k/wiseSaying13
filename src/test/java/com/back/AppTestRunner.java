@@ -18,7 +18,13 @@ public final class AppTestRunner {
         }
     }
 
+    // CRUD 테스트용: 샘플 없이 빈 저장소에서 시작
     public static String run(String input) {
-        return run(input, scanner -> new App(scanner).run());
+        return run(input, scanner -> new App(scanner, false).run());
+    }
+
+    // 검색·페이징 테스트용: 샘플 명언 10개로 시작
+    public static String runWithSampleData(String input) {
+        return run(input, scanner -> new App(scanner, true).run());
     }
 }
